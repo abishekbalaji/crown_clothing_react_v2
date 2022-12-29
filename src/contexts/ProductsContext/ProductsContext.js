@@ -4,11 +4,10 @@ import SHOP_DATA from "../../shop-data.json";
 
 export const ProductsContext = createContext({
   products: [],
-  setproducts: null,
 });
 
 export const ProductsProvider = ({ children }) => {
-  const [products, setproducts] = useState(SHOP_DATA);
+  const [products] = useState(SHOP_DATA);
   const value = { products };
   return (
     <ProductsContext.Provider value={value}>
