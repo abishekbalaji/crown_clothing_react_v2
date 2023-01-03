@@ -11,10 +11,10 @@ const DirectoryItem = ({ category }) => {
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <div className="directory-body">
+      <Link to={`/shop/${title}`} className="directory-body">
         <h2>{title}</h2>
-        <Link to={`/shop/${title}`}>Shop Now</Link>
-      </div>
+        <p>Shop Now</p>
+      </Link>
     </div>
   );
 };
