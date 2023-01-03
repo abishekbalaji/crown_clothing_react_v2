@@ -42,3 +42,6 @@ export const clearCartItem = (cartItems, itemToClear) => {
   const newCartItems = cartItems.filter((item) => item.id !== itemToClear.id);
   return createAction(CART_REDUCER_TYPES.SET_CART_ITEMS, newCartItems);
 };
+
+export const emptyCart = () =>
+  createAction(CART_REDUCER_TYPES.SET_CART_ITEMS, []);
