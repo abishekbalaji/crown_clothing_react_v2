@@ -102,21 +102,17 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-export const signOutUser = async () => signOut(auth);
+export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
 
-export const getCategoryItemsAndDocument = async () => {
-  const collectionRef = collection(db, "categories");
+export const getCategoryItemsAndDocument = async (collectionName) => {
+  const collectionRef = collection(db, collectionName);
 
   const q = query(collectionRef);
 
   const collectionSnapshot = await getDocs(q);
-  const categoryMap = collectionSnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-  return categoryMap;
+  return collectionSnapshot.docs.map(docSnapshot => docSnapshot.data())
+  // 
 };
