@@ -20,6 +20,10 @@ const PaymentForm = () => {
 
   const paymentHandler = async (e) => {
     e.preventDefault();
+    if (!amount) {
+      alert("Add items to cart first!");
+      return;
+    }
     if (!stripe || !elements) return;
 
     setIsProcessingPayment(true);

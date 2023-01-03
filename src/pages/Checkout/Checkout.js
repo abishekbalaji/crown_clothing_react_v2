@@ -39,6 +39,10 @@ const Checkout = () => {
       ))}
       <span className="total">Total: ${cartTotal}</span>
       <PaymentForm />
+      <p>
+        Use test Cedit Card: <b>4242 4242 4242 4242</b>
+      </p>
+      <p>Date should be some time in the future. The rest can be anything.</p>
     </div>
   );
 };
